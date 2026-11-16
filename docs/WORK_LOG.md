@@ -9,3 +9,5 @@
 - Added English README, hardware/BOM/connection/calibration/bench instructions, limitations and original SVG; rendered and inspected the SVG, corrected preview framing, and checked local links.
 - Added Ubuntu host/AVR CI and truthful README badges for C++11, Uno R3, CLI 1.6.0, AVR 1.8.8, MIT and the real master-branch workflow. Updated checkout to the current official v7.0.1 release.
 - User subsequently authorized publishing to the principal branch after tests and updating GitHub About. Confirmed origin and local master; publication follows completed local checks, without force push.
+- Published commits 249661f and 5c95d19 to origin/master without force; updated About to describe the line follower. Verified GitHub default branch is master, published SHA matches, badge targets return HTTP 200 and remote CI run 43793444685 passed both jobs.
+- Final official carrier schematic inspection found its 47 kΩ SLP pull-up: reduced the specified external pull-down from 10 kΩ to 1 kΩ to keep reset-time sleep below the TI 0.5 V low threshold even at 6 V; documented divider/current calculations and updated the vector diagram.

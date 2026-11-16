@@ -16,6 +16,11 @@
 - Original SVG rendered with macOS Quick Look and visually inspected. Local
   document links and SVG XML checked; `git diff --check` passed.
 
+Remote GitHub Actions [run 43793444685](https://github.com/kleberandrade/obstacle_avoiding_robot_arduino/actions/runs/43793444685)
+passed both `host` and `uno` jobs for implementation/documentation commit
+`5c95d19`. Badge images and their external targets returned HTTP 200 when checked.
+Later documentation-only commits are tracked by the live workflow badge.
+
 The workflow in `.github/workflows/ci.yml` repeats the host tests/example and Uno
 compile on Ubuntu 24.04. The README CI badge reports the remote workflow's actual
 status; it is not a static claim about test success. Toolchain releases are pinned

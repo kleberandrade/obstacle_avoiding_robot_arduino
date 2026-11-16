@@ -10,7 +10,7 @@
 <text x="638" y="670">4 × NiMH + → 1 A fuse → switch → MOTOR_V+</text>
 <text x="638" y="704">Pack − → GND (common with Uno / sensors)</text>
 <text x="638" y="738">100 µF / 16 V: + to MOTOR_V+, − to GND</text>
-<text x="638" y="772">SLP → 10 kΩ → GND (reset-time sleep)</text>
+<text x="638" y="772">SLP → 1 kΩ → GND (reset-time sleep)</text>
 <text x="638" y="806">100 nF across EACH motor's terminals</text>
 <text x="638" y="840">Battery pack: 4.8 V nominal; verify &lt;6 V</text>
 <text x="638" y="876" class="small">Motor return goes directly to driver / battery ground.</text>

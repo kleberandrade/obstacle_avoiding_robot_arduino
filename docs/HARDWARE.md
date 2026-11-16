@@ -14,7 +14,7 @@
 | 1 | USB 5 V supply/power bank | Rated at least 500 mA; avoid auto-shutoff types |
 | 1 | 100 µF electrolytic, at least 16 V | Across driver VIN/GND close to carrier, observe polarity |
 | 2 | 100 nF ceramic capacitors | One directly across each motor's terminals |
-| 1 | 10 kΩ resistor | SLP to GND, holds driver asleep during reset despite carrier pull-up |
+| 1 | 1 kΩ resistor | SLP to GND, holds driver asleep during reset despite carrier pull-up |
 | As needed | Headers, soldered wire, connectors, cable ties | Short motor-current paths; no loose motor breadboard wiring |
 
 Choose substitutions by **stall current at the actual maximum supply voltage**,
@@ -37,8 +37,11 @@ Sources checked during implementation (2026-11-15):
 - [DRV8833 carrier #2130](https://www.pololu.com/product/2130): 2.7–10.8 V motor
   input, 5 V compatible controls, approximately 1.2 A continuous per channel
   (thermal conditions matter). Its default current limiting is disabled.
-  SLP is pulled high on this specific carrier; the external 10 kΩ pull-down and
-  D8 control hold it low during reset. FLT is open drain, hence D2 INPUT_PULLUP.
+  SLP is pulled high on this specific carrier; the external 1 kΩ pull-down and
+  D8 control hold it low during reset. The carrier schematic shows a 47 kΩ
+  pull-up to VMM: a 1 kΩ pull-down gives about 0.125 V at a 6 V motor supply
+  (ignoring the IC's internal pull-down), below the 0.5 V sleep-low limit. When
+  D8 is high the external resistor draws about 5 mA, within the Uno GPIO limit. FLT is open drain, hence D2 INPUT_PULLUP.
 - [TI DRV8833 datasheet](https://www.ti.com/lit/ds/symlink/drv8833.pdf): with
   xIN2 low, PWM on xIN1 alternates forward drive and coast. SLP low sleeps both
   bridges. Output polarity must be matched to the installed motor orientation.
@@ -67,7 +70,7 @@ Left/right are viewed from behind the robot, looking forward.
 | Uno D6 | Driver BIN1 | Right PWM |
 | Uno D7 | Driver BIN2 | Always LOW |
 | Uno D8 | Driver SLP (nSLEEP) | HIGH only while commanded to move |
-| Driver SLP | 10 kΩ resistor to GND | Reset-time sleep |
+| Driver SLP | 1 kΩ resistor to GND | Reset-time sleep |
 | Driver FLT (nFAULT) | Uno D2 | Active LOW, internal pull-up enabled |
 | Driver AOUT1/AOUT2 | Left motor's two terminals | Swap leads, power off, if backward |
 | Driver BOUT1/BOUT2 | Right motor's two terminals | Swap leads, power off, if backward |
