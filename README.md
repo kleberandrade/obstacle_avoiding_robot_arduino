@@ -16,6 +16,14 @@ The firmware starts stopped, requires white/black calibration and an explicit
 start command, and stops on line loss, ambiguous patterns or a reported driver
 fault. The control logic has no Arduino dependency and runs on a desktop compiler.
 
+## Electronics overview
+
+![Illustrated electronics component layout with Portuguese labels](docs/electronics-overview-pt.png)
+
+AI-generated component overview with Portuguese labels. Board shapes and printed
+pin positions are illustrative. Use the [exact wiring schematic](docs/wiring.svg)
+and [connection table](docs/HARDWARE.md#exact-connections) when assembling the robot.
+
 ## Requirements
 
 - Arduino Uno **R3 / ATmega328P**, not Uno R4.
