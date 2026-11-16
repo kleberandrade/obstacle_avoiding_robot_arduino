@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Local tooling and build products
+build/
+.tools/
+.metrics/
+core
